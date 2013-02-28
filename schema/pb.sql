@@ -2,16 +2,13 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
-DROP SCHEMA IF EXISTS `mydb` ;
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
-USE `mydb` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`user`
+-- Table `onlytigers`.`user`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`user` ;
+DROP TABLE IF EXISTS `onlytigers`.`user` ;
 
-CREATE  TABLE IF NOT EXISTS `mydb`.`user` (
+CREATE  TABLE IF NOT EXISTS `onlytigers`.`user` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `user` VARCHAR(45) NOT NULL ,
   `password` VARCHAR(45) NOT NULL ,
@@ -28,11 +25,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`picture`
+-- Table `onlytigers`.`picture`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`picture` ;
+DROP TABLE IF EXISTS `onlytigers`.`picture` ;
 
-CREATE  TABLE IF NOT EXISTS `mydb`.`picture` (
+CREATE  TABLE IF NOT EXISTS `onlytigers`.`picture` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `fileNAme` VARCHAR(45) NOT NULL ,
   `name` VARCHAR(45) NOT NULL ,
@@ -53,18 +50,18 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`picture` (
   INDEX `fk_picture_user` (`user_id` ASC) ,
   CONSTRAINT `fk_picture_user`
     FOREIGN KEY (`user_id` )
-    REFERENCES `mydb`.`user` (`id` )
+    REFERENCES `onlytigers`.`user` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`tags`
+-- Table `onlytigers`.`tags`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`tags` ;
+DROP TABLE IF EXISTS `onlytigers`.`tags` ;
 
-CREATE  TABLE IF NOT EXISTS `mydb`.`tags` (
+CREATE  TABLE IF NOT EXISTS `onlytigers`.`tags` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `description` VARCHAR(255) NOT NULL ,
   `tag` VARCHAR(127) NOT NULL ,
@@ -74,11 +71,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`picture_has_tags`
+-- Table `onlytigers`.`picture_has_tags`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`picture_has_tags` ;
+DROP TABLE IF EXISTS `onlytigers`.`picture_has_tags` ;
 
-CREATE  TABLE IF NOT EXISTS `mydb`.`picture_has_tags` (
+CREATE  TABLE IF NOT EXISTS `onlytigers`.`picture_has_tags` (
   `picture_id` INT NOT NULL ,
   `tags_id` INT NOT NULL ,
   PRIMARY KEY (`picture_id`, `tags_id`) ,
@@ -86,23 +83,23 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`picture_has_tags` (
   INDEX `fk_picture_has_tags_picture1` (`picture_id` ASC) ,
   CONSTRAINT `fk_picture_has_tags_picture1`
     FOREIGN KEY (`picture_id` )
-    REFERENCES `mydb`.`picture` (`id` )
+    REFERENCES `onlytigers`.`picture` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_picture_has_tags_tags1`
     FOREIGN KEY (`tags_id` )
-    REFERENCES `mydb`.`tags` (`id` )
+    REFERENCES `onlytigers`.`tags` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`comment`
+-- Table `onlytigers`.`comment`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `mydb`.`comment` ;
+DROP TABLE IF EXISTS `onlytigers`.`comment` ;
 
-CREATE  TABLE IF NOT EXISTS `mydb`.`comment` (
+CREATE  TABLE IF NOT EXISTS `onlytigers`.`comment` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `text` VARCHAR(511) NULL ,
   `picture_id` INT NOT NULL ,
@@ -118,17 +115,17 @@ CREATE  TABLE IF NOT EXISTS `mydb`.`comment` (
   INDEX `fk_comment_user1` (`user_id` ASC) ,
   CONSTRAINT `fk_comment_picture1`
     FOREIGN KEY (`picture_id` )
-    REFERENCES `mydb`.`picture` (`id` )
+    REFERENCES `onlytigers`.`picture` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_comment_comment1`
     FOREIGN KEY (`comment_id` )
-    REFERENCES `mydb`.`comment` (`id` )
+    REFERENCES `onlytigers`.`comment` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_comment_user1`
     FOREIGN KEY (`user_id` )
-    REFERENCES `mydb`.`user` (`id` )
+    REFERENCES `onlytigers`.`user` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

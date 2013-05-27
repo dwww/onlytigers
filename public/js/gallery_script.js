@@ -69,10 +69,8 @@ $(window).load(function() {
 
 	var curImage = "";
 	$('.resized_image').click(function(element){
-		console.log(element.currentTarget);
-		$(".under").hide();
-		$(element.currentTarget).next().show().html("aaa");
 		$(".single_picture_group").hide();
+		
 		if (curImage == element.currentTarget.id){
 			$("#grupa_"+$(element.currentTarget).data("grupa")).hide();
 		}else{

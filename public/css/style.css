@@ -106,14 +106,6 @@
 	width: auto;
 	padding: 25px;
 }
-
-.hidden{
-	visibility:hidden;
-}
-.under{
-	color:black;
-}
-
 .picture_preview  {
 	float:left;
 	width: 66%;

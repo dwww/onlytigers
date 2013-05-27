@@ -1,4 +1,4 @@
-<div ID="header">
+		<div ID="header">
 			<div class="navbar navbar-inverse">
 				<div class="navbar-inner">
 					<div class="container-fluid">
@@ -16,11 +16,15 @@
 									<li><a href="#contact">Contact</a></li>
 								</ul>
 								<p class="navbar-text pull-right">
-								Logged in as <a href="#" class="navbar-link">Username</a>
+								<?php if ($username === ""):?>
+									<a href="signup" class="navbar-link">Sign up</a>  <a href="login" class="navbar-link">Log in</a>
+								<?php else:?>
+									Logged in as <a href="#" class="navbar-link"><?php echo $username;?></a> 
+									<a href="logout" class="navbar-link">Log out</a>
+								<?php endif;?>
 								</p>
 							</div><!--/.nav-collapse -->
 					</div>
 				</div>
 			</div>
-			
-		</header> <!-- end header -->
+		</div>

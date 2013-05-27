@@ -35,7 +35,7 @@
 				</div>
 			</div>
 			
-		</header> <!-- end header -->
+		</div> <!-- end header -->
 <div class="container"> 
 			<div id="banner"> </div>
 			<div class="navbar navbar-inverse">

@@ -29,7 +29,7 @@ class Main extends Controller{
 						"img/thumb/ex4.jpg",
 						"img/thumb/ex5.jpg",
 				),
-				"priimek" => "vatovec"
+				"username" => ""
 		);
 		
 		$this->show("index.html.php",$data);

@@ -16,13 +16,17 @@
 	<div class="container">
 
 		<?php include 'banner_navBar2.html.php';?>
-		
+
 		<?php include 'pics.html.php';?>
-		
+
 		<?php include 'pageNo.html.php';?>
-		
-	</div>
-	
-	<?php include 'footer.html.php';?>
-	
+
+
+		<?php include 'footer.html.php';?>
+
+	</div> <!-- end main_container div -->
+
+	<script src="http://code.jquery.com/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </body>
+</html>

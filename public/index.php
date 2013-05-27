@@ -30,11 +30,10 @@ switch ($_GET["page"]){
 	case "view":
 		$m->view();
 		break;
-	case "fib":
-		if (!isset($_GET["n"]) || $_GET["n"]<0 || $_GET["n"] > 100){
-			$_GET["n"] = 10;
+	case "single":
+		if (isset($_GET["id"]) && $_GET["id"] !== ""){
+			$m->singlePic($_GET["id"]);
 		}
-		$m->fibIt($_GET["n"]);
 		break;
 	default:
 		$m->index();

@@ -1,7 +1,7 @@
-<div class="clear"> </div>
+				<div class="clear"> </div>
 					<div class="selected_image">
 						<div class="picture_preview">
-							<img alt="ni slike" src="img/original/ex3.jpg">
+							<img alt="ni slike" src="<?php echo $slika?>">
 						</div>
 						<div class="picture_info pull-right">
 							<div class="picture_data">

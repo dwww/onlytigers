@@ -9,31 +9,33 @@ class Main extends Controller{
 		$this->fib = new Fib();
 	}
 	
-	public function index(){	
+	public function index(){
+		$slike = array();
+		for ($i=1 ; $i<31 ; $i++){
+			$slike["slika_id_".$i] = "img/thumb/ex{$i}.jpg";
+		}
+	
 		$data = array(
-				"slike" => array(
-						"img/thumb/ex1.jpg",
-						"img/thumb/ex3.jpg",
-						"img/thumb/ex2.jpg",
-						"img/thumb/ex4.jpg",
-						"img/thumb/ex1.jpg",
-						"img/thumb/ex2.jpg",
-						"img/thumb/ex3.jpg",
-						"img/thumb/ex4.jpg",
-						"img/thumb/ex4.jpg",
-						"img/thumb/ex5.jpg",
-						"img/thumb/ex5.jpg",
-						"img/thumb/ex1.jpg",
-						"img/thumb/ex2.jpg",
-						"img/thumb/ex3.jpg",
-						"img/thumb/ex4.jpg",
-						"img/thumb/ex5.jpg",
-				),
+				"slike" => $slike,
 				"username" => "LOLL"
 		);
-		
+	
 		$this->show("index.html.php",$data);
+	
+	}
+	
+	public function singlePic($id){
+		$slike = array();
+		for ($i=1 ; $i<31 ; $i++){
+			$slike["slika_id_".$i] = "img/original/ex{$i}.jpg";
+		}
 		
+		$data = array(
+				"slika" => $slike[$id]
+		);
+	
+		$this->show("big_image.html.php",$data);
+	
 	}
 	
 	

@@ -26,7 +26,8 @@
 
 	</div> <!-- end main_container div -->
 
-	<script src="http://code.jquery.com/jquery.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-</body>
+	<script src="/js/lib/jquery-1.9.1.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	<script src="/js/gallery_script.js"></script>
+	</body>
 </html>

@@ -10,62 +10,8 @@
 	<link href="style.css" rel="stylesheet">
   </head>
   <body>
-		<div ID="header">
-			<div class="navbar navbar-inverse">
-				<div class="navbar-inner">
-					<div class="container-fluid">
-						<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-						<a class="brand" href="#">OnlyTigers</a>
-							<div class="nav-collapse collapse">
-								<ul class="nav">
-									<li class="active"></li>
-									<li><a href="#">Home</a></li>
-									<li><a href="#about">About</a></li>
-									<li><a href="#contact">Contact</a></li>
-								</ul>
-								<p class="navbar-text pull-right">
-								Logged in as <a href="#" class="navbar-link">Username</a>
-								</p>
-							</div><!--/.nav-collapse -->
-					</div>
-				</div>
-			</div>
-			
-		</div> <!-- end header -->
-<div class="container"> 
-			<div id="banner"> </div>
-			<div class="navbar navbar-inverse">
-			  <div class="navbar-inner">
-				<div class="container">
-			 
-					<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-					<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</a>
-					
-					<!-- Be sure to leave the brand out there if you want it shown -->
-					<a class="brand pull-centre" href="#">Gallery</a>
-					<div class="btn-group pull-left">
-					  <button class="btn">Date</button>
-					  <button class="btn">Popularity</button>
-					  <button class="btn">Submit</button>
-					</div>
-					<form class="navbar-search pull-right">
-						<input type="text" class="search-query" placeholder="Search">
-					</form>
-					<!-- Everything you want hidden at 940px or less, place within here -->
-					<div class="nav-collapse collapse">
-					<!-- .nav, .navbar-search, .navbar-form, etc -->
-					</div>
-				</div>
-			  </div>
-			</div>
+		<div class="container"> 
+
 			<div ID="gallery">
 				<div ID="pics">
 					<div class="gallery_image_container">
@@ -233,7 +179,6 @@
 					<div ID="paw">
 						<img data-src="holder.js/300x200" alt="no paw :(" src="img/TigerPaw300.bmp">
 					</div>
-				</div> <!-- end pageEnd -->
 				</div> <!-- end pageEnd -->
 			</div> <!-- end footer -->
 </div> <!-- end main_container div -->

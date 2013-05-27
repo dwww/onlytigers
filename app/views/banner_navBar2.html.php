@@ -1,4 +1,4 @@
-<div id="banner"> </div>
+			<div id="banner"> </div>
 			<div class="navbar navbar-inverse">
 			  <div class="navbar-inner">
 				<div class="container">

@@ -9,6 +9,7 @@ include_once '../app/controllers/main.php';
 
 $m = new Main();
 
+
 if (!isset($_GET["page"])){
 	$_GET["page"] = "";
 }

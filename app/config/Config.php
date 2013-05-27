@@ -2,7 +2,8 @@
 
 $database = array(
 		"server" => "localhost",
-		"username" => "localhost",
-		"password" => "localhost",
-		"port" => "localhost",
+		"username" => "dwww",
+		"password" => "pik248",
+		"port" => 3306,
 );
+

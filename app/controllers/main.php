@@ -1,22 +1,21 @@
 <?php
 
 require_once '../app/models/fib.php';
+require_once '../app/controllers/Controller.php';
 
-class Main {
+class Main extends Controller{
+	
+	public function __construct() {
+		$this->fib = new Fib();
+	}
 	
 	public function index(){	
 		$data = array(
 				"ime" => "jan",
 				"priimek" => "vatovec"
 		);
-		echo "<pre>";
 		
-		foreach ( $data as $key => $value ) {
-			$$key = $value;
-		}
-		
-		$output = include ("../app/views/index.html.php");
-		echo $output;
+		$this->show("index.html.php",$data);
 		
 	}
 	
@@ -26,28 +25,14 @@ class Main {
 	}
 	
 	public function fibIt($n){
-	
-		$f = new Fib();
-		
 		$data = array();
-		$data["fib"] = $f->getNumbers($n);
+		$data["fib"] = $this->fib->getNumbers($n);
 		$data["username"] = "dwww";
 		$data["priimek"] = "dwww";
 		
 		$this->show("fib.html.php", $data);
 		
-		
 	}
-	
-	private function show($view, $data){
-		foreach ( $data as $key => $value ) {
-			$$key = $value;
-		}
-		
-		$output = include ("../app/views/".$view);
-		echo $output;
-		
-	}
-	
+
 }
 

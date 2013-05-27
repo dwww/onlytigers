@@ -11,7 +11,24 @@ class Main extends Controller{
 	
 	public function index(){	
 		$data = array(
-				"ime" => "jan",
+				"slike" => array(
+						"img/thumb/ex1.jpg",
+						"img/thumb/ex3.jpg",
+						"img/thumb/ex2.jpg",
+						"img/thumb/ex4.jpg",
+						"img/thumb/ex1.jpg",
+						"img/thumb/ex2.jpg",
+						"img/thumb/ex3.jpg",
+						"img/thumb/ex4.jpg",
+						"img/thumb/ex4.jpg",
+						"img/thumb/ex5.jpg",
+						"img/thumb/ex5.jpg",
+						"img/thumb/ex1.jpg",
+						"img/thumb/ex2.jpg",
+						"img/thumb/ex3.jpg",
+						"img/thumb/ex4.jpg",
+						"img/thumb/ex5.jpg",
+				),
 				"priimek" => "vatovec"
 		);
 		

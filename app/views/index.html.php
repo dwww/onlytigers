@@ -16,7 +16,13 @@
 	<div class="container">
 
 		<?php include 'banner_navBar2.html.php';?>
-
+		
+		<?php include 'pics.html.php';?>
+		
+		<?php include 'pageNo.html.php';?>
+		
 	</div>
-
+	
+	<?php include 'footer.html.php';?>
+	
 </body>

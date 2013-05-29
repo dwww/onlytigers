@@ -18,12 +18,14 @@ switch ($_GET["page"]){
 	case "index":
 		$m->index();
 		break;
-	case "login":
-		$m->login();
+	case "signin":
+		$m->signin();
 		break;
-	case "register":
-		$m->register();
+	case "signup":
+		$m->signup();
 		break;
+	case "adduser":
+		$m->adduser();
 	case "search":
 		$m->search();
 		break;

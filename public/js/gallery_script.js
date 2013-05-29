@@ -64,7 +64,7 @@ $(window).load(function() {
 	    	pic.height(Math.floor(pic.height()*d));
 	    	pic.width(Math.floor(picWidths.shift()*d));
 	    }    
-	    $('.resized_image').last().parent().after("<div class=\"single_picture_group\" id=\"grupa_"+i+"\">hello world</div>");
+	    //$('.resized_image').last().parent().after("<div class=\"single_picture_group\" id=\"grupa_"+i+"\">hello world</div>");
 	}
 
 	var curImage = "";

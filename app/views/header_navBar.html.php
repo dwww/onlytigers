@@ -15,14 +15,14 @@
 									<li><a href="#about">About</a></li>
 									<li><a href="#contact">Contact</a></li>
 								</ul>
-								<p class="navbar-text pull-right">
 								<?php if ($username === ""):?>
-									<a href="signup" class="navbar-link">Sign up</a>  <a href="login" class="navbar-link">Log in</a>
+									<?php include 'toolbarSign.html.php';?>
 								<?php else:?>
-									Logged in as <a href="#" class="navbar-link"><?php echo $username;?></a> 
-									<a href="logout" class="navbar-link">Log out</a>
+									<p class="navbar-text pull-right">
+										Logged in as <a href="#" class="navbar-link"><?php echo $username;?></a> 
+										<a href="logout" class="navbar-link">Log out</a>
+									</p>
 								<?php endif;?>
-								</p>
 							</div><!--/.nav-collapse -->
 					</div>
 				</div>

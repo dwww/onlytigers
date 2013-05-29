@@ -17,11 +17,19 @@ class Main extends Controller{
 	
 		$data = array(
 				"slike" => $slike,
-				"username" => "LOLL"
+				"username" => ""
 		);
 	
 		$this->show("index.html.php",$data);
 	
+	}
+	
+	public function signup(){
+		$data = array(
+				"username" => ""
+		);
+		
+		$this->show("signup.html.php", $data);
 	}
 	
 	public function singlePic($id){

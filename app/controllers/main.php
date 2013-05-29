@@ -5,7 +5,7 @@ require_once '../app/controllers/Controller.php';
 class Main extends Controller{
 	
 	public function __construct() {
-		$this->fib = new Fib();
+	
 	}
 	
 	public function index(){
@@ -40,7 +40,7 @@ class Main extends Controller{
 	
 	
 	public function search(){
-		$this->fibIt(1000);
+		
 	}
 	
 

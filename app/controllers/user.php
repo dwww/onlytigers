@@ -1,10 +1,12 @@
 <?php
 
 require_once '../app/controllers/Controller.php';
+require_once '../app/models/userModel.php';
 
 class User extends Controller{
 	
 	public function __construct() {
+		$this->userModel = new UserModel();
 	}
 	
 	
@@ -21,6 +23,7 @@ class User extends Controller{
 	}
 	
 	public function addUser(){
+		$this->userModel->addUSer();
 		echo "dodaj userja";
 	}
 

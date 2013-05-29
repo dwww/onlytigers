@@ -64,8 +64,9 @@ $(window).load(function() {
 	    	pic.height(Math.floor(pic.height()*d));
 	    	pic.width(Math.floor(picWidths.shift()*d));
 	    }    
-	    //$('.resized_image').last().parent().after("<div class=\"single_picture_group\" id=\"grupa_"+i+"\">hello world</div>");
+	    $('.resized_image').last().parent().after("<div class=\"single_picture_group\" id=\"grupa_"+i+"\"></div>");
 	}
+	$(".single_picture_group").hide();
 
 	var curImage = "";
 	$('.resized_image').click(function(element){
@@ -73,7 +74,8 @@ $(window).load(function() {
 		
 		if (curImage == element.currentTarget.id){
 			$("#grupa_"+$(element.currentTarget).data("grupa")).hide();
-		}else{
+			curImage = "";
+			}else{
 			curImage = element.currentTarget.id;
 			$("#grupa_"+$(element.currentTarget).data("grupa")).show();
 			$("#grupa_"+$(element.currentTarget).data("grupa")).load("index.php?page=single&id="+element.currentTarget.id);

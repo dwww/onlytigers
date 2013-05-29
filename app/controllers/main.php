@@ -1,6 +1,5 @@
 <?php
 
-require_once '../app/models/fib.php';
 require_once '../app/controllers/Controller.php';
 
 class Main extends Controller{
@@ -23,15 +22,8 @@ class Main extends Controller{
 		$this->show("index.html.php",$data);
 	
 	}
-	
-	public function signup(){
-		$data = array(
-				"username" => ""
-		);
+
 		
-		$this->show("signup.html.php", $data);
-	}
-	
 	public function singlePic($id){
 		$slike = array();
 		for ($i=1 ; $i<31 ; $i++){
@@ -51,15 +43,6 @@ class Main extends Controller{
 		$this->fibIt(1000);
 	}
 	
-	public function fibIt($n){
-		$data = array();
-		$data["fib"] = $this->fib->getNumbers($n);
-		$data["username"] = "dwww";
-		$data["priimek"] = "dwww";
-		
-		$this->show("fib.html.php", $data);
-		
-	}
 
 }
 

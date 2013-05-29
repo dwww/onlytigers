@@ -6,9 +6,10 @@ ini_set("display_errors", 1);
 
 
 include_once '../app/controllers/main.php';
+include_once '../app/controllers/user.php';
 
 $m = new Main();
-
+$usr = new User();
 
 if (!isset($_GET["page"])){
 	$_GET["page"] = "";
@@ -19,13 +20,13 @@ switch ($_GET["page"]){
 		$m->index();
 		break;
 	case "signin":
-		$m->signin();
+		$usr->signin();
 		break;
 	case "signup":
-		$m->signup();
+		$usr->signup();
 		break;
 	case "adduser":
-		$m->adduser();
+		$usr->addUser();
 	case "search":
 		$m->search();
 		break;

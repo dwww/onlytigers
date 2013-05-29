@@ -19,14 +19,6 @@ switch ($_GET["page"]){
 	case "index":
 		$m->index();
 		break;
-	case "signin":
-		$usr->signin();
-		break;
-	case "signup":
-		$usr->signup();
-		break;
-	case "adduser":
-		$usr->addUser();
 	case "search":
 		$m->search();
 		break;
@@ -37,6 +29,17 @@ switch ($_GET["page"]){
 		if (isset($_GET["id"]) && $_GET["id"] !== ""){
 			$m->singlePic($_GET["id"]);
 		}
+		break;
+	case "signin":
+		$usr->signin();
+		break;
+	case "signup":
+		$usr->signup();
+		break;
+	case "adduser":
+		$usr->addUser();
+	case "upload":
+		$usr->upload();
 		break;
 	default:
 		$m->index();

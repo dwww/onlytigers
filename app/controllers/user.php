@@ -18,6 +18,14 @@ class User extends Controller{
 		$this->show("signup.html.php", $data);
 	}
 	
+	public function upload(){
+		$data = array(
+				"username" => ""
+		);
+		
+		$this->show("fileupload.html.php", $data);
+	}
+	
 	public function signin(){
 		echo "todo";
 	}

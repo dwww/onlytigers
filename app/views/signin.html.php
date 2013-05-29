@@ -28,18 +28,6 @@
 
 	<script src="/js/lib/jquery-1.9.1.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
-	<script src="/js/bootstrap-transition.js"></script>
-    <script src="/js/bootstrap-alert.js"></script>
-    <script src="/js/bootstrap-modal.js"></script>
-    <script src="/js/bootstrap-dropdown.js"></script>
-    <script src="/js/bootstrap-scrollspy.js"></script>
-    <script src="/js/bootstrap-tab.js"></script>
-    <script src="/js/bootstrap-tooltip.js"></script>
-    <script src="/js/bootstrap-popover.js"></script>
-    <script src="/js/bootstrap-button.js"></script>
-    <script src="/js/bootstrap-collapse.js"></script>
-    <script src="/js/bootstrap-carousel.js"></script>
-    <script src="/js/bootstrap-typeahead.js"></script>
 	<div id="ytCinemaMessage" style="display: none;"></div><script id="hiddenlpsubmitdiv" style="display: none;"></script><script>try{for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ d.innerText=i; } } d.dispatchEvent(customEvent); form.lpsubmitorig2(); } } }}catch(e){}</script>
 	
 	<script src="/js/gallery_script.js"></script>

@@ -2,11 +2,13 @@
 
 require_once '../app/controllers/Controller.php';
 require_once '../app/models/userModel.php';
+require_once '../app/models/imageModel.php';
 
 class User extends Controller{
 	
 	public function __construct() {
 		$this->userModel = new UserModel();
+		$this->imageModel = new ImageModel();
 	}
 	
 	public function signup(){
@@ -19,7 +21,12 @@ class User extends Controller{
 		$data = $this->getDefData();
 		$this->show("fileupload.html.php", $data);
 	}
+
+	public function upload_image(){
+		$this->imageModel->upload_image();
 		
+	}
+	
 	public function signin(){
 		$username = fromPost("username");
 		$password = fromPost("password");

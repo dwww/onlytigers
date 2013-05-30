@@ -3,10 +3,11 @@
 	<div class="span6">
 		<div class="well">
 			<form id="upload_image" class="form-horizontal" method="post"
-				action="?page=upload_image">
+				action="?page=upload_image" name="changer">
 				<legend>Upload</legend>
 				<div class="fileupload fileupload-new" data-provides="fileupload">
 		  			<div class="control-label padding-right-20">
+						<input name="MAX_FILE_SIZE" value="102400" type="hidden">
 		    			<span class="btn btn-file"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file" /></span>
 		    			<a href="#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
 		  			</div>

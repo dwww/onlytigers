@@ -43,6 +43,9 @@ switch ($page){
 	case "upload":
 		$usr->upload();
 		break;
+	case "upload_image":
+		$usr->upload_image();
+		break;
 	default:
 		$m->error404();
 		break;

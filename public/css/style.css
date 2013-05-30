@@ -74,9 +74,10 @@
 
 .picture_comments {
 	margin-top: 4%;
-	height: 65%;
-	max-height: 300px; color : #FFFFFF;
-	overflow: scroll; overflow-x : hidden;
+	height: 300px; 
+	color : #FFFFFF;
+	overflow: scroll; 
+	overflow-x : hidden;
 	scrollbar-face-color: #000000;
 	scrollbar-shadow-color: #2D2C4D;
 	scrollbar-highlight-color: #7D7E94;

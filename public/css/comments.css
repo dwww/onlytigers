@@ -32,6 +32,15 @@
 	padding: 2%;
 	background-color: #444444;
 	margin: 0px 5px 5px 5px;
+	color: #FFFFFF;
+}
+
+
+.image_discription {
+	background-color: #444444;
+	color: #FFFFFF;
+	padding: 5px;
+	margin-top: 10px;
 }
 
 

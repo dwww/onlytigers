@@ -20,22 +20,18 @@
 										<button class="btn btn-mini downvote-button"><i class="icon-arrow-down"></i></button>
 									</div>
 									<div class="clear"></div>
+								
+									<div class="image_discription round-border-4">
+										sadsadasd
+										asdsadasdasd
+									</div>
 							
 							</div>
 							
-							
-							<div class="picture_description">
-								<div class="napis">Description</div>
-								<div class="comment_text">
-									sadsadasd
-									asdsadasdasd
-								</div>
-							</div>
 							
 							
 							
 							<div class="picture_comments">
-								<div class="napis">Comments</div>
 								<div class="comment round-border-4">
 									<div class="controls" id="cmt">
 										<textarea class="xxlarge" id="comment-textfield" name="comment-textfield" rows="2" cols="30" placeholder="Submit a comment"></textarea>

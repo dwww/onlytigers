@@ -117,9 +117,11 @@
 }
 
 .picture_preview  img {
-	height: 450px;
-	width: auto;
-	padding: 25px;
+height: auto;
+width: auto;
+max-height: 450px;
+max-width: 720px;
+padding: 25px;
 }
 
 .picture_preview {

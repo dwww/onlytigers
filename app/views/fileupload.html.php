@@ -27,7 +27,7 @@
 
 	<script src="/js/lib/jquery-1.9.1.js"></script>
 	<script src="/js/bootstrap.min.js"></script>
-    <script src="/js/bootstrap-fileupload.min.js"></script>
+    <script src="/js/bootstrap-fileupload.js"></script>
     <script src="/js/bootstrap-tags.js"></script>
     
 	<div id="ytCinemaMessage" style="display: none;"></div><script id="hiddenlpsubmitdiv" style="display: none;"></script><script>try{for(var lastpass_iter=0; lastpass_iter < document.forms.length; lastpass_iter++){ var lastpass_f = document.forms[lastpass_iter]; if(typeof(lastpass_f.lpsubmitorig2)=="undefined"){ lastpass_f.lpsubmitorig2 = lastpass_f.submit; lastpass_f.submit = function(){ var form=this; var customEvent = document.createEvent("Event"); customEvent.initEvent("lpCustomEvent", true, true); var d = document.getElementById("hiddenlpsubmitdiv"); for(var i = 0; i < document.forms.length; i++){ if(document.forms[i]==form){ d.innerText=i; } } d.dispatchEvent(customEvent); form.lpsubmitorig2(); } } }}catch(e){}</script>
@@ -41,7 +41,12 @@
 					            excludeList:["not", "these", "words"],
 					        })
 			            });
-					</script>
+			            
+					    console.log("something");
+					    $('.fileupload').fileupload({"uploadtype":"image"});
+
+					
+				</script>
 	
 	</body>
 </html>

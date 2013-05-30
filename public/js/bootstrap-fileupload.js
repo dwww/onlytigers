@@ -66,6 +66,9 @@
     
     change: function(e, invoked) {
       if (invoked === 'clear') return
+      console.log(e);
+      console.log(e.currentTarget.value);
+      console.log(invoked);
       
       var file = e.target.files !== undefined ? e.target.files[0] : (e.target.value ? { name: e.target.value.replace(/^.+\\/, '') } : null)
       

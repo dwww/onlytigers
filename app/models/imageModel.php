@@ -13,6 +13,9 @@ class ImageModel{
 	
 		// Make sure the user actually
 		// selected and uploaded a file
+		echo "<pre>";var_dump($GLOBALS);
+		var_dump($_POST);
+		
 		if (isset($_FILES['image']) && $_FILES['image']['size'] > 0) {
 	
 			// Temporary file name stored on the server

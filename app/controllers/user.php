@@ -45,5 +45,6 @@ class User extends Controller{
 		header("Location: http://www.onlytigers.com/");
 	}
 	
+
 }
 

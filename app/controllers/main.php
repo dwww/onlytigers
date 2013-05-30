@@ -44,6 +44,11 @@ class Main extends Controller{
 		
 	}
 	
-
+	public function error404(){
+		$data = $this->getDefData();
+		$data["error"] = "Tiger not found!";
+		$this->show("error.html.php", $data);
+	}
+	
 }
 

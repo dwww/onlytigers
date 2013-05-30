@@ -11,8 +11,11 @@ include_once '../app/helper/Functions.php';
 
 $m = new Main();
 $usr = new User();
+$page = fromGet("page");
 
-switch (fromGet("page")){
+$page = $page == "" ? "index" : $page;
+
+switch ($page){
 	case "index":
 		$m->index();
 		break;
@@ -41,6 +44,6 @@ switch (fromGet("page")){
 		$usr->upload();
 		break;
 	default:
-		$m->index();
+		$m->error404();
 		break;
 }

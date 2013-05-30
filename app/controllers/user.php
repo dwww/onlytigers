@@ -28,9 +28,8 @@ class User extends Controller{
 		if($this->userModel->signin($username, $password)){
 			header("Location: http://www.onlytigers.com/");
 		}else{
-			$data = array(
-					"error" => "Wrong username or password!"
-					);
+			$data = $this->getDefData();
+			$data["error"] = "Wrong username or password!";
 			$this->show("error.html.php", $data);
 		}
 	}

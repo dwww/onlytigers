@@ -17,14 +17,19 @@ class UserModel{
 		
 		$result = $this->db->query($query, array($username));
 		
+		$expire = time() + 3600*24*5;
+
+		if (fromPost("remember-me") == "1"){
+			$expire = 0;
+		}
+		
 		if($result->num_rows > 0) {
 			$row = $result->fetch_assoc();
 			$pass = md5($password."something.".$row['salt']);
 			var_dump($pass);
 			if ($row['password'] === $pass){
-				setcookie("username", stripslashes($row['user']), time() + 3600*24*5);
+				setcookie("username", stripslashes($row['user']), $expire);
 				return true;
-				
 			}
 		}
 

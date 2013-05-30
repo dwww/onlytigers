@@ -8,6 +8,7 @@
 <link href="/css/bootstrap.css" rel="stylesheet" media="screen">
 <link href="/css/bootstrap-responsive.css" rel="stylesheet">
 <link href="/css/style.css" rel="stylesheet">
+<link href="/css/comments.css" rel="stylesheet">
 </head>
 <body>
 

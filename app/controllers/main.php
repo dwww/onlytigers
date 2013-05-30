@@ -24,7 +24,7 @@ class Main extends Controller{
 
 		
 	public function singlePic($id){
-		if ($id != ""){
+		if ($id == ""){
 			die("");
 		}
 		$slike = array();

@@ -9,31 +9,42 @@ class User extends Controller{
 		$this->userModel = new UserModel();
 	}
 	
-	
 	public function signup(){
-		$data = array(
-				"username" => ""
-		);
-		
+		$data = $this->getDefData();
+				
 		$this->show("signup.html.php", $data);
 	}
 	
 	public function upload(){
-		$data = array(
-				"username" => ""
-		);
-		
+		$data = $this->getDefData();
 		$this->show("fileupload.html.php", $data);
 	}
-	
+		
 	public function signin(){
-		echo "todo";
+		$username = fromPost("username");
+		$password = fromPost("password");
+		
+		
+		if($this->userModel->signin($username, $password)){
+			header("Location: http://www.onlytigers.com/");
+		}else{
+			$data = array(
+					"error" => "Wrong username or password!"
+					);
+			$this->show("error.html.php", $data);
+		}
 	}
+	
 	
 	public function addUser(){
 		$this->userModel->addUSer();
 		echo "dodaj userja";
 	}
-
+	
+	public function signout(){
+		$this->userModel->signout();
+		header("Location: http://www.onlytigers.com/");
+	}
+	
 }
 

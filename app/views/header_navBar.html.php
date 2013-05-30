@@ -20,7 +20,7 @@
 								<?php else:?>
 									<p class="navbar-text pull-right">
 										Logged in as <a href="#" class="navbar-link"><?php echo $username;?></a> 
-										<a href="logout" class="navbar-link">Log out</a>
+										<a href="?page=signout" class="navbar-link">Log out</a>
 									</p>
 								<?php endif;?>
 							</div><!--/.nav-collapse -->

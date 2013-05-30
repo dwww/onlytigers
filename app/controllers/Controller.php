@@ -1,5 +1,7 @@
 <?php
 
+require_once '../app/models/userModel.php';
+
 class Controller {
 	
 	public function show($view, $data = array()){
@@ -20,6 +22,14 @@ class Controller {
 	
 		echo $output;
 	
+	}
+	
+	public function getDefData(){
+		$u = new UserModel();
+		$data = array(
+				"username" => $u->getUsername()
+		);
+		return $data;
 	}
 	
 }

@@ -21,7 +21,6 @@
 
 		<?php include 'pageNo.html.php';?>
 
-
 		<?php include 'footer.html.php';?>
 
 	</div> <!-- end main_container div -->

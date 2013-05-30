@@ -7,15 +7,12 @@ ini_set("display_errors", 1);
 
 include_once '../app/controllers/main.php';
 include_once '../app/controllers/user.php';
+include_once '../app/helper/Functions.php';
 
 $m = new Main();
 $usr = new User();
 
-if (!isset($_GET["page"])){
-	$_GET["page"] = "";
-}
-
-switch ($_GET["page"]){
+switch (fromGet("page")){
 	case "index":
 		$m->index();
 		break;
@@ -26,18 +23,20 @@ switch ($_GET["page"]){
 		$m->view();
 		break;
 	case "single":
-		if (isset($_GET["id"]) && $_GET["id"] !== ""){
-			$m->singlePic($_GET["id"]);
-		}
+		$m->singlePic(fromGet("id"));
 		break;
 	case "signin":
 		$usr->signin();
+		break;
+	case "signout":
+		$usr->signout();
 		break;
 	case "signup":
 		$usr->signup();
 		break;
 	case "adduser":
 		$usr->addUser();
+		break;
 	case "upload":
 		$usr->upload();
 		break;

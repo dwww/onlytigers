@@ -13,26 +13,27 @@ class Main extends Controller{
 		for ($i=1 ; $i<31 ; $i++){
 			$slike["slika_id_".$i] = "img/thumb/ex{$i}.jpg";
 		}
-	
-		$data = array(
-				"slike" => $slike,
-				"username" => ""
-		);
-	
+		
+		$data = $this->getDefData();
+		
+		$data["slike"] = $slike;
+			
 		$this->show("index.html.php",$data);
 	
 	}
 
 		
 	public function singlePic($id){
+		if ($id != ""){
+			die("");
+		}
 		$slike = array();
 		for ($i=1 ; $i<31 ; $i++){
 			$slike["slika_id_".$i] = "img/original/ex{$i}.jpg";
 		}
 		
-		$data = array(
-				"slika" => $slike[$id]
-		);
+		$data = $this->getDefData();
+		$data["slika"] = $slike[$id];
 	
 		$this->show("big_image.html.php",$data);
 	

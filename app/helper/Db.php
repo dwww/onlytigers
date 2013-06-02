@@ -22,13 +22,13 @@ class Db {
 			exit();
 		}
 	}
-
+	
 	
 	private function db_close(){
 		mysqli_close($this->mysqli);
 	}
 	
-	public function query($query, $data = array()){
+	public function query($query, $data = array(), $debug=false){
 		
 		$command = explode('?', $query." ");
 		
@@ -43,9 +43,15 @@ class Db {
 			$query.=$clean.$command[$i+1];
 		}
 		
+		if ($debug) echo $query;
 		
-		$result = $this->mysqli->query($query) or die($this->mysqli->error.__LINE__);
+		$result = $this->mysqli->query($query);
 		
+		if(!$result && $debug){
+			echo "<pre>";
+			echo $this->mysqli->error.__LINE__;
+			echo "\n</pre>";
+		}
 		
 		return $result;
 		

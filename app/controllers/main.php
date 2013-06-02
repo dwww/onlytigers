@@ -34,7 +34,8 @@ class Main extends Controller{
 		
 		$data = $this->getDefData();
 		$data["slika"] = $slike[$id];
-	
+		$data["slikaid"] = $id;
+		
 		$this->show("big_image.html.php",$data);
 	
 	}

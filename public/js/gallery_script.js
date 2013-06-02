@@ -68,6 +68,27 @@ $(window).load(function() {
 	}
 	$(".single_picture_group").hide();
 
+	
+	
+	
+	var commentCallback = function(){
+		
+		$("#comment-textfield").keypress(function(event){
+			
+			if(event.charCode == 13){
+				console.log($(this).val());
+				console.log($("#comment-slika-id").val());
+				var data = {
+						"slikaid":$("#comment-slika-id").val(),
+						"comment":$(this).val()
+				};
+				
+			}
+
+		});
+		
+	};
+	
 	var curImage = "";
 	$('.resized_image').click(function(element){
 		$(".single_picture_group").hide();
@@ -78,7 +99,8 @@ $(window).load(function() {
 			}else{
 			curImage = element.currentTarget.id;
 			$("#grupa_"+$(element.currentTarget).data("grupa")).show();
-			$("#grupa_"+$(element.currentTarget).data("grupa")).load("index.php?page=single&id="+element.currentTarget.id);
+			$("#grupa_"+$(element.currentTarget).data("grupa")).load("index.php?page=single&id="+element.currentTarget.id, commentCallback);
+			
 		}
 	});
 

@@ -8,6 +8,20 @@ class ImageModel{
 		$this->db = new Db();
 	}
 	
+	public function testDb(){
+		echo "<pre>";
+		$tags = "t, rsssawr dfdangeoruse";
+		
+		$keywords = preg_split("/[\s,]+/", $tags);
+			
+		$query = "INSERT INTO tags (tag) VALUES (?)";
+
+		var_dump($keywords);
+		foreach($keywords as $tag){
+			echo $tag;
+			$this->db->query($query, array($tag), true);
+		}
+	}
 	
 	public function upload_image($title, $tags, $description, $name, $size, $type){
 	
@@ -22,7 +36,17 @@ class ImageModel{
 			$query="INSERT INTO picture (fileName, name, description, fileType, imageData, fileSize, user_id) VALUES (?,?,?,?,?,?,1)";
 			$this->db->query($query, $data);
 			
+			$idof = $this->db->mysqli->insert_id;
+			
 			$keywords = preg_split("/[\s,]+/", $tags);
+			
+			$query = "INSERT INTO tags (tag) VALUES (?)";
+			$select = "INSERT INTO picture_has_tags (picture_id, tags_id) VALUES (?, (select id from tags where tag = ?))";
+			
+			foreach($keywords as $tag){
+				$this->db->query($query, array($tag));
+				$this->db->query($select, array($idof, $tag));
+			}
 			
 			/*
 			// Temporary file name stored on the server

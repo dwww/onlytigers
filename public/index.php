@@ -52,7 +52,14 @@ switch ($page){
 		break;
 	case "pic_upload":
 		$usr->pic_upload();
-		break;		
+		break;	
+	case "add_comment":
+		$usr->add_comment();
+		break;
+	case "test_db":
+		$imm = new ImageModel();
+		$imm->testDb();
+		break;
 	default:
 		$m->error404();
 		break;

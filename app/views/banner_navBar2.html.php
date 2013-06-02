@@ -12,11 +12,18 @@
 					
 					<!-- Be sure to leave the brand out there if you want it shown -->
 					<a class="brand pull-centre" href="#">Gallery</a>
-					<div class="btn-group pull-left">
+					<ul class="nav pull-left">
+									<li class="active"></li>
+										<li><a href="?page=default">Sort by</a></li>
+									<li class="active"></li>
+										<li><a href="?page=default">Date</a></li>
+									<li class="active"></li>
+										<li><a href="?page=default">Popularity</a></li>
+					</ul>
+					<!-- div class="btn-group pull-left">
 					  <button class="btn">Date</button>
 					  <button class="btn">Popularity</button>
-					  <button class="btn">Submit</button>
-					</div>
+					</div-->
 					<form class="navbar-search pull-right">
 						<input type="text" class="search-query" placeholder="Search">
 					</form>

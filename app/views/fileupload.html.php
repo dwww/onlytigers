@@ -17,7 +17,7 @@
 
 	<div class="container">
 
-		<?php include 'banner_navBar2.html.php';?>
+		<?php include 'banner_navBarUpload.html.php';?>
 
 		<?php include 'fileupload_form.html.php';?>
 
@@ -43,9 +43,9 @@
 			            });
 			            
 					    console.log("something");
-					    $('.fileupload').fileupload({"uploadtype":"image"});
+					    $('.fileupload').fileupload({"uploadtype":"image","url":"?page=upload"});
 
-					
+					console.log($("#fakingfile"));
 				</script>
 	
 	</body>

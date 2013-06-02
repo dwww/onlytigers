@@ -1,6 +1,7 @@
 <?php
 
 require_once '../app/helper/Db.php';
+require_once '../app/helper/Functions.php';
 
 class UserModel{
 	
@@ -8,8 +9,16 @@ class UserModel{
 		$this->db = new Db();
 	}
 	
-	public function addUser(){
-		var_dump($_POST);
+	
+	public function addUser($username, $email, $gender, $passwd){
+		//var_dump($_POST);
+		$salt=generateSalt();
+		$pass = md5($passwd."something.".$salt);
+		$query='INSERT INTO user (user, password, salt, email, gender, rights, status) VALUES (?,?,?,?,?,?,?);';
+		$data = array("$username","$pass","$salt","$email","$gender",'1','1');
+		$this->db->query($query, $data);
+		
+		
 	}
 	
 	public function signin($username, $password){

@@ -2,7 +2,7 @@
 	<div class="span3"></div>
 	<div class="span6">
 		<div class="well">
-			<form id="upload_image" class="form-horizontal" method="post"
+			<form id="upload_image fileupload" class="form-horizontal" method="post"
 				action="?page=upload_image" name="changer" enctype="multipart/form-data">
 				<legend>Upload</legend>
 				<div class="fileupload fileupload-new" data-provides="fileupload">
@@ -34,7 +34,7 @@
 						</div>
 					</div>
 				</div-->
-				
+
 				<div class="control-group ">
 					<label class="control-label">Image tags</label>
 					<div class="controls">

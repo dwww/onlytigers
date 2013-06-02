@@ -7,22 +7,12 @@
 				action="?page=adduser">
 				<legend>Sign Up</legend>
 				<div class="control-group">
-					<label class="control-label">First Name</label>
+					<label class="control-label">Username</label>
 					<div class="controls">
 						<div class="input-prepend">
 							<span class="add-on"><i class="icon-user"></i> </span> <input
 								type="text" class="input-xlarge" id="fname" name="fname"
-								placeholder="First Name">
-						</div>
-					</div>
-				</div>
-				<div class="control-group ">
-					<label class="control-label">Last Name</label>
-					<div class="controls">
-						<div class="input-prepend">
-							<span class="add-on"><i class="icon-user"></i> </span> <input
-								type="text" class="input-xlarge" id="lname" name="lname"
-								placeholder="Last Name">
+								placeholder="username">
 						</div>
 					</div>
 				</div>

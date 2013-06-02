@@ -14,3 +14,10 @@ function fromGet($instr = ""){
 	}
 	return $_GET[$instr];
 }
+
+function generateSalt(){
+	$rand=rand(1,100000);
+	$tmp=md5($rand);
+	$salt=substr($tmp,0,20);
+	return $salt;	
+}

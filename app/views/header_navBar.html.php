@@ -1,3 +1,4 @@
+		
 		<div ID="header">
 			<div class="navbar navbar-inverse">
 				<div class="navbar-inner">
@@ -11,20 +12,28 @@
 							<div class="nav-collapse collapse">
 								<ul class="nav">
 									<li class="active"></li>
-									<li><a href="#">Home</a></li>
-									<li><a href="#about">About</a></li>
-									<li><a href="#contact">Contact</a></li>
+									<li><a href="?page=index">Home</a></li>
+									<li><a href="?page=index">Gallery</a></li>
+									<li><a href="?page=index">About</a></li>
 								</ul>
 								<?php if ($username === ""):?>
 									<?php include 'toolbarSign.html.php';?>
 								<?php else:?>
+									<ul class="nav pull-right">
+										<li class="active"></li>
+										<li><a href="?page=signout">Log out</a></li>
+									</ul>
 									<p class="navbar-text pull-right">
 										Logged in as <a href="#" class="navbar-link"><?php echo $username;?></a> 
-										<a href="?page=signout" class="navbar-link">Log out</a>
 									</p>
+									<ul class="nav pull-right">
+										<li class="active"></li>
+										<li><a href="?page=upload">Upload</a></li>
+									</ul>
 								<?php endif;?>
 							</div><!--/.nav-collapse -->
 					</div>
 				</div>
 			</div>
 		</div>
+		

@@ -10,7 +10,7 @@ class Main extends Controller{
 	
 	public function index(){
 		$slike = array();
-		for ($i=1 ; $i<31 ; $i++){
+		for ($i=1 ; $i<28 ; $i++){
 			$slike["slika_id_".$i] = "img/thumb/ex{$i}.jpg";
 		}
 		

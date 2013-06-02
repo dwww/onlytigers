@@ -13,6 +13,7 @@ $m = new Main();
 $usr = new User();
 $page = fromGet("page");
 
+
 $page = $page == "" ? "index" : $page;
 
 switch ($page){
@@ -37,6 +38,9 @@ switch ($page){
 	case "signup":
 		$usr->signup();
 		break;
+	case "signup_ap":
+		$usr->signup_ap();
+		break;
 	case "adduser":
 		$usr->addUser();
 		break;
@@ -46,6 +50,9 @@ switch ($page){
 	case "upload_image":
 		$usr->upload_image();
 		break;
+	case "pic_upload":
+		$usr->pic_upload();
+		break;		
 	default:
 		$m->error404();
 		break;

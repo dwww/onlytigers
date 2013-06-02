@@ -12,6 +12,7 @@ class User extends Controller{
 	}
 	
 	public function signup(){
+	
 		$data = $this->getDefData();
 				
 		$this->show("signup.html.php", $data);
@@ -23,8 +24,18 @@ class User extends Controller{
 	}
 
 	public function upload_image(){
-		$this->imageModel->upload_image();
-		
+		$title=$_POST['title'];
+		$tags=$_POST['tags'];
+		$description=$_POST['description'];
+		$name=basename($_FILES['image']['name']);
+		$size=basename($_FILES['image']['size']);
+		$type=basename($_FILES['image']['type']);
+		$this->imageModel->upload_image($title, $tags, $description, $name, $size, $type);
+	}
+	
+	public function pic_upload(){
+		$data = $this->getDefData();
+		$this->show("uptiger.html.php", $data);
 	}
 	
 	public function signin(){
@@ -40,11 +51,23 @@ class User extends Controller{
 			$this->show("error.html.php", $data);
 		}
 	}
-	
+		
 	
 	public function addUser(){
-		$this->userModel->addUSer();
-		echo "dodaj userja";
+		$username = fromPost("fname");
+		$email = fromPost("email");
+		$gender = fromPost("gender");
+		$passwd = fromPost("passwd");
+		$conpasswd = fromPost("conpasswd");
+		if($passwd == $conpasswd && $username != "" && $email != "" && $passwd != ""){
+			$this->userModel->addUSer($username, $email, $gender, $passwd);
+			$data = $this->getDefData();
+			header("Location: http://www.onlytigers.com/");
+		}else{
+			$data = $this->getDefData();
+			$data["error"] = "Passwords do not match!";
+			$this->show("error.html.php", $data);
+		}
 	}
 	
 	public function signout(){

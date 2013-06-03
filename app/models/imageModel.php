@@ -51,7 +51,9 @@ class ImageModel{
 	}
 	
 	public function upload_image($title, $tags, $description, $name, $size, $type){
-	
+		
+		if ($title == "") return false;
+				
 		if (isset($_FILES['image']) && $_FILES['image']['size'] > 0) {
 			$content=addslashes(file_get_contents($_FILES['image']['tmp_name']));
 			$data = array("$name","$title","$description","$type", "$content", "$size");
@@ -70,12 +72,10 @@ class ImageModel{
 				$this->db->query($select, array($idof, $tag));
 			}
 			
-			echo"Picture was uploaded successfully";
+
+			return true;
 		}
-		else {
-			echo "No image selected/uploaded";
-		}
-	
-	
+
+		return false;
 	}
 }

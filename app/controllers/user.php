@@ -14,18 +14,12 @@ class User extends Controller{
 	}
 	
 	public function signup(){
-	
 		$data = $this->getDefData();
-	
 		$this->show("signup.html.php", $data);
 	}
 	
 	public function addComment(){
-// 		echo "<pre>";
-// 		var_dump($_POST);
-// 		var_dump($_GET);	
-// 		echo "</pre>";	
-		
+
 		$userid = $this->userModel->getUserId();
 		$comment = fromPost("comment");
 		$imageId = fromPost("slikaid");
@@ -52,7 +46,15 @@ class User extends Controller{
 		$name=basename($_FILES['image']['name']);
 		$size=basename($_FILES['image']['size']);
 		$type=basename($_FILES['image']['type']);
-		$this->imageModel->upload_image($title, $tags, $description, $name, $size, $type);
+		$res = $this->imageModel->upload_image($title, $tags, $description, $name, $size, $type);
+		
+		if ($res){
+			header("Location: http://www.onlytigers.com/");
+		}else{
+			$data = $this->getDefData();
+			$data["error"] = "Image Could not be uploaded";
+			$this->show("error.html.php", $data);
+		}
 	}
 	
 	public function pic_upload(){

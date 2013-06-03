@@ -54,7 +54,7 @@ switch ($page){
 		$usr->pic_upload();
 		break;	
 	case "add_comment":
-		$usr->add_comment();
+		$usr->addComment();
 		break;
 	case "test_db":
 		$imm = new ImageModel();

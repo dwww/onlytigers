@@ -1,4 +1,3 @@
-							<div class="picture_comments">
 								<div class="comment round-border-4">
 									<div class="controls" id="cmt">
 										<input type="hidden" id="comment-slika-id" name="slika-id" value="<?php echo $slikaid?>"></input>
@@ -68,5 +67,3 @@
 
 								
 																
-									
-							</div>

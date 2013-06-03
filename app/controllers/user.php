@@ -3,19 +3,36 @@
 require_once '../app/controllers/Controller.php';
 require_once '../app/models/userModel.php';
 require_once '../app/models/imageModel.php';
+require_once '../app/models/commentModel.php';
 
 class User extends Controller{
 	
 	public function __construct() {
 		$this->userModel = new UserModel();
 		$this->imageModel = new ImageModel();
+		$this->commentModel = new CommentModel();
 	}
 	
 	public function signup(){
 	
 		$data = $this->getDefData();
-				
+	
 		$this->show("signup.html.php", $data);
+	}
+	
+	public function addComment(){
+		echo "<pre>";
+		var_dump($_POST);
+		var_dump($_GET);	
+		echo "</pre>";	
+		
+		$userid = $this->userModel->getUserId();
+		$comment = fromPost("comment");
+		$imageId = fromPost("slikaid");
+		if ($userid !== "" && $comment !== "" && $imageId !== ""){
+			$this->commentModel->addComment($userid, $comment, $imageId);
+		}
+			
 	}
 	
 	public function upload(){

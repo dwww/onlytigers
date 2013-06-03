@@ -29,8 +29,11 @@
 							</div>
 							
 							
+							<div class="picture_comments" id="picture_comments">
 							
-							<?php include "picture_comments.html.php"?>							
+								<?php include "picture_comments.html.php"?>							
+																
+							</div>
 							
 							
 							

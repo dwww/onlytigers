@@ -38,6 +38,7 @@ class UserModel{
 			var_dump($pass);
 			if ($row['password'] === $pass){
 				setcookie("username", stripslashes($row['user']), $expire);
+				setcookie("userid", stripslashes($row['id']), $expire);
 				return true;
 			}
 		}
@@ -52,6 +53,13 @@ class UserModel{
 		return "";
 	}
 	
+	public function getUserId(){
+		if (isset($_COOKIE["userid"])){
+			return $_COOKIE["userid"];
+		}
+		return "";
+	}
+	
 	public function signup($username, $password){
 		
 		echo "todo";
@@ -59,6 +67,7 @@ class UserModel{
 	
 	public function signout(){
 		setcookie("username", "", time() -1000);
+		setcookie("userid", "", time() -1000);
 	}
 	
 	

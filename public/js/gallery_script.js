@@ -82,6 +82,8 @@ $(window).load(function() {
 						"slikaid":$("#comment-slika-id").val(),
 						"comment":$(this).val()
 				};
+				console.log("neki");
+				$("#picture_comments").load("index.php?page=add_comment",data,commentCallback);
 				
 			}
 

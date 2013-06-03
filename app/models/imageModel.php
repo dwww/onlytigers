@@ -27,17 +27,33 @@ class ImageModel{
 		$query = "SELECT * FROM picture WHERE id=?";
 	
 		$result = $this->db->query($query, array($id));
-		
+	
 		if ($result){
 			return $result->fetch_assoc();
 		}
 		return false;
 	}
 	
+	public function getImages($from, $count){
+		$query = "SELECT * FROM picture LIMIT $from, $count"; //from in count ne smeta imeti narekovajev
+	
+		$result = $this->db->query($query);
+	
+		$res = array();
+		if ($result = $this->db->query($query)) {
+			while ($row = $result->fetch_assoc()) {
+				$res[] = $row;
+			}
+			$result->free();
+		}
+		
+		return $res;
+	}
+	
 	public function upload_image($title, $tags, $description, $name, $size, $type){
 	
 		if (isset($_FILES['image']) && $_FILES['image']['size'] > 0) {
-			$content=base64_encode(file_get_contents($_FILES['image']['tmp_name']));
+			$content=addslashes(file_get_contents($_FILES['image']['tmp_name']));
 			$data = array("$name","$title","$description","$type", "$content", "$size");
 			$query="INSERT INTO picture (fileName, name, description, fileType, imageData, fileSize, user_id) VALUES (?,?,?,?,?,?,1)";
 			$this->db->query($query, $data);

@@ -35,6 +35,7 @@ class User extends Controller{
 		
 		$data = $this->getDefData();
 		$data["comments"] = $this->commentModel->getComments($imageId);
+		$data["slikaid"] = $imageId;
 		
 		$this->show("picture_comments.html.php", $data);
 	}
@@ -44,7 +45,7 @@ class User extends Controller{
 		$this->show("fileupload.html.php", $data);
 	}
 
-	public function upload_image(){
+	public function upload_image(){		
 		$title=$_POST['title'];
 		$tags=$_POST['tags'];
 		$description=$_POST['description'];

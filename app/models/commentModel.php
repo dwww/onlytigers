@@ -22,7 +22,7 @@ class CommentModel{
 	
 	public function getComments($imageId){
 		
-		$query="SELECT comment.*, user FROM comment LEFT JOIN user ON  user.id=comment.user_id WHERE picture_id=? ORDER BY score DESC";
+		$query="SELECT comment.*, user FROM comment LEFT JOIN user ON  user.id=comment.user_id WHERE picture_id=? ORDER BY created DESC, score DESC";
 		
 		$data = array("$imageId");
 		

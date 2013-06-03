@@ -12,9 +12,11 @@ class Main extends Controller{
 	}
 	
 	public function index(){
+		$tmpSlike = $this->imageModel->getImages(0,50);
 		$slike = array();
-		for ($i=1 ; $i<28 ; $i++){
-			$slike["slika_id_".$i] = "img/thumb/ex{$i}.jpg";
+		foreach ($tmpSlike as $slika) {
+			$id = $slika["id"];
+			$slike[$id] = "?page=img&id={$id}";
 		}
 		
 		$data = $this->getDefData();
@@ -30,13 +32,9 @@ class Main extends Controller{
 		if ($id == ""){
 			die("");
 		}
-		$slike = array();
-		for ($i=1 ; $i<31 ; $i++){
-			$slike["slika_id_".$i] = "img/original/ex{$i}.jpg";
-		}
 		
 		$data = $this->getDefData();
-		$data["slika"] = $slike[$id];
+		$data["slika"] = "?page=img&id={$id}";
 		$data["slikaid"] = $id;
 		$data["comments"] = $this->commentModel->getComments($id);
 		
@@ -65,7 +63,7 @@ class Main extends Controller{
 		
 		if ($img){
 			header('Content-type: ' . 'image/'.$img['fileType']);
-			echo base64_decode($img['imageData']);
+			echo stripslashes($img['imageData']);
 		}else {
 			echo "404";
 		}

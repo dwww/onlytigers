@@ -21,10 +21,10 @@ class User extends Controller{
 	}
 	
 	public function addComment(){
-		echo "<pre>";
-		var_dump($_POST);
-		var_dump($_GET);	
-		echo "</pre>";	
+// 		echo "<pre>";
+// 		var_dump($_POST);
+// 		var_dump($_GET);	
+// 		echo "</pre>";	
 		
 		$userid = $this->userModel->getUserId();
 		$comment = fromPost("comment");
@@ -32,7 +32,11 @@ class User extends Controller{
 		if ($userid !== "" && $comment !== "" && $imageId !== ""){
 			$this->commentModel->addComment($userid, $comment, $imageId);
 		}
-			
+		
+		$data = $this->getDefData();
+		$data["comments"] = $this->commentModel->getComments($imageId);
+		
+		$this->show("picture_comments.html.php", $data);
 	}
 	
 	public function upload(){

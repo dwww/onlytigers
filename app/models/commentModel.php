@@ -10,24 +10,30 @@ class CommentModel{
 	}
 	
 	
-	public function addComment($username, $comment, $imageID){
-		$query = "select * from user where user=?";
-		
-		$result = $this->db->query($query, array($username));
-		
-		
-		//var_dump($_POST);
-		$salt=generateSalt();
-		$pass = md5($passwd."something.".$salt);
-		$query='INSERT INTO user (user, password, salt, email, gender, rights, status) VALUES (?,?,?,?,?,?,?);';
-		$data = array("$username","$pass","$salt","$email","$gender",'1','1');
+	public function addComment($userId, $comment, $imageId){
+				
+		$query="INSERT INTO `onlytigers`.`comment` (`text`, `picture_id`, `upVote`, `downVote`, `score`, `status`, `user_id`) VALUES ( ? , ?, ?, ?, ?, ?, ?)";
+
+		$data = array("$comment","$imageId","1","0","1",'1',"$userId");
 		$this->db->query($query, $data);
-		
 		
 	}
 
 	
 	public function getComments($imageId){
 		
+		$query="SELECT comment.*, user FROM comment LEFT JOIN user ON  user.id=comment.user_id WHERE picture_id=? ORDER BY score DESC";
+		
+		$data = array("$imageId");
+		
+		$res = array();
+		if ($result = $this->db->query($query, $data)) {
+			while ($row = $result->fetch_assoc()) {
+				$res[] = $row;
+			}
+			$result->free();
+		}
+		
+		return $res;
 	}
 }

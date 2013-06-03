@@ -60,6 +60,9 @@ switch ($page){
 		$imm = new ImageModel();
 		$imm->testDb();
 		break;
+	case "img":
+		$m->showImage();
+		break;
 	default:
 		$m->error404();
 		break;

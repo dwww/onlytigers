@@ -2,6 +2,9 @@ SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL';
 
+DROP SCHEMA IF EXISTS `onlytigers` ;
+CREATE SCHEMA IF NOT EXISTS `onlytigers` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci ;
+USE `onlytigers` ;
 
 -- -----------------------------------------------------
 -- Table `onlytigers`.`user`
@@ -18,6 +21,7 @@ CREATE  TABLE IF NOT EXISTS `onlytigers`.`user` (
   `lastLogIn` TIMESTAMP NULL ,
   `rights` INT NOT NULL DEFAULT 0 ,
   `status` INT NOT NULL DEFAULT 1 ,
+  `gender` VARCHAR(45) NULL ,
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `user_UNIQUE` (`user` ASC) ,
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) )
@@ -66,7 +70,8 @@ CREATE  TABLE IF NOT EXISTS `onlytigers`.`tags` (
   `description` VARCHAR(255) NOT NULL ,
   `tag` VARCHAR(127) NOT NULL ,
   `status` INT NOT NULL DEFAULT 1 ,
-  PRIMARY KEY (`id`) )
+  PRIMARY KEY (`id`) ,
+  UNIQUE INDEX `tag_UNIQUE` (`tag` ASC) )
 ENGINE = InnoDB;
 
 
@@ -103,24 +108,18 @@ CREATE  TABLE IF NOT EXISTS `onlytigers`.`comment` (
   `id` INT NOT NULL AUTO_INCREMENT ,
   `text` VARCHAR(511) NULL ,
   `picture_id` INT NOT NULL ,
-  `comment_id` INT NOT NULL ,
   `upVote` INT NOT NULL DEFAULT 0 ,
   `downVote` INT NOT NULL DEFAULT 0 ,
   `score` FLOAT NOT NULL DEFAULT 0 ,
   `status` INT NOT NULL DEFAULT 1 ,
   `user_id` INT NOT NULL ,
+  `created` TIMESTAMP NOT NULL DEFAULT CURRENT ,
   PRIMARY KEY (`id`) ,
   INDEX `fk_comment_picture1` (`picture_id` ASC) ,
-  INDEX `fk_comment_comment1` (`comment_id` ASC) ,
   INDEX `fk_comment_user1` (`user_id` ASC) ,
   CONSTRAINT `fk_comment_picture1`
     FOREIGN KEY (`picture_id` )
     REFERENCES `onlytigers`.`picture` (`id` )
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_comment_comment1`
-    FOREIGN KEY (`comment_id` )
-    REFERENCES `onlytigers`.`comment` (`id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_comment_user1`

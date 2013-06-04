@@ -232,6 +232,7 @@ padding: 25px;
 }
 
 .gallery_image_container {
+	position: relative;
 	display: block;
 	float: left;
 	margin: 5px;
@@ -287,3 +288,7 @@ padding: 25px;
 	margin: 20px 0px;
 }
 
+
+.admin-image-buttons {
+	position: absolute;	
+}

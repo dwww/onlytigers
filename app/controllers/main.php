@@ -3,19 +3,20 @@
 require_once '../app/controllers/Controller.php';
 require_once '../app/models/commentModel.php';
 require_once '../app/models/imageModel.php';
+require_once '../app/models/userModel.php';
 
 class Main extends Controller{
 	
 	public function __construct() {
 		$this->commentModel = new CommentModel();
 		$this->imageModel = new ImageModel();
+		$this->userModel = new UserModel();
 	}
 	
 	public function index(){
 		$slike = $this->imageModel->getImages(0,50);
 		
 		$data = $this->getDefData();
-		
 		$data["slike"] = $slike;
 			
 		$this->show("index.html.php",$data);

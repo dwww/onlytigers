@@ -1,11 +1,13 @@
 <?php
 
 require_once '../app/helper/Db.php';
+require_once '../app/models/userModel.php';
 
 class ImageModel{
 
 	public function __construct(){
 		$this->db = new Db();
+		$this->userModel = new UserModel();
 	}
 
 	public function testDb(){
@@ -23,10 +25,19 @@ class ImageModel{
 		}
 	}
 
+	private function statusFilter($and=false){
+		if ($this->userModel->getUserRigths() > 0){
+			return "";
+		}else{
+			return ($and ? " AND " : " WHERE "). " status=1 ";
+		}
+	}
+	
 	public function get($id){
+		
+		$status = $this->statusFilter(true);
 
-
-		$query = "SELECT * FROM picture WHERE id=? AND status=1 ";
+		$query = "SELECT * FROM picture WHERE id=? $status ";
 
 		$result = $this->db->query($query, array($id));
 
@@ -39,24 +50,10 @@ class ImageModel{
 	}
 
 	public function getImages($from, $count){
-		$query = "SELECT * FROM picture WHERE status=1 LIMIT $from, $count"; //from in count ne smeta imeti narekovajev
-
-		$result = $this->db->query($query);
-
-		$res = array();
-		if ($result = $this->db->query($query)) {
-			while ($row = $result->fetch_assoc()) {
-				$row['url'] = "?page=img&id={$row['id']}";
-				$res[] = $row;
-			}
-			$result->free();
-		}
-
-		return $res;
-	}
-
-	public function getAllImages($from, $count){
-		$query = "SELECT * FROM picture LIMIT $from, $count"; //from in count ne smeta imeti narekovajev
+		
+		$status = $this->statusFilter(false);
+		
+		$query = "SELECT * FROM picture $status LIMIT $from, $count"; //from in count ne smeta imeti narekovajev
 
 		$result = $this->db->query($query);
 

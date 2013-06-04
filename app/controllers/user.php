@@ -18,8 +18,19 @@ class User extends Controller{
 		$this->show("signup.html.php", $data);
 	}
 	
+	
+	
+	public function changeImageStatus(){
+		if ($this->userModel->getUserRigths()>0){
+			$id = fromGet("imageId");
+			$this->imageModel->changeStatus($id);
+		}
+		header("Location: http://www.onlytigers.com/");
+	}
+	
+	
 	public function addComment(){
-
+		
 		$userid = $this->userModel->getUserId();
 		$comment = fromPost("comment");
 		$imageId = fromPost("slikaid");
@@ -85,7 +96,6 @@ class User extends Controller{
 		$conpasswd = fromPost("conpasswd");
 		if($passwd == $conpasswd && $username != "" && $email != "" && $passwd != ""){
 			$this->userModel->addUSer($username, $email, $gender, $passwd);
-			$data = $this->getDefData();
 			header("Location: http://www.onlytigers.com/");
 		}else{
 			$data = $this->getDefData();

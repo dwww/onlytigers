@@ -4,7 +4,7 @@
 					    <div class="gallery_image_container">
 					    	<?php if ($rights > 0):?>
 								<div class="admin-image-buttons">
-									<a href="#"> 
+									<a href="?page=changeStatus&imageId=<?php echo $slika['id'];?>"> 
 										<button class="btn btn-mini upvote-button <?php echo $slika['status']==1 ? "btn-info": "btn-danger";?> ">
 											<i class="icon-remove-sign"></i>
 										</button> 

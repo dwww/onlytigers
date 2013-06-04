@@ -9,22 +9,31 @@ class ImageModel{
 		$this->db = new Db();
 		$this->userModel = new UserModel();
 	}
-
+	
 	public function testDb(){
 		echo "<pre>";
 		$tags = "t, rsssawr dfdangeoruse";
-
+	
 		$keywords = preg_split("/[\s,]+/", $tags);
 			
 		$query = "INSERT INTO tags (tag) VALUES (?)";
-
+	
 		var_dump($keywords);
 		foreach($keywords as $tag){
 			echo $tag;
 			$this->db->query($query, array($tag), true);
 		}
 	}
-
+	
+	public function changeStatus($id){
+		$query = "
+			UPDATE picture
+		   	SET status = MOD(status+1,2)
+			WHERE id = ?
+		";
+		$this->db->query($query, array($id));
+	}
+	
 	private function statusFilter($and=false){
 		if ($this->userModel->getUserRigths() > 0){
 			return "";

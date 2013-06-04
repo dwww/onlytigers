@@ -56,6 +56,9 @@ switch ($page){
 	case "add_comment":
 		$usr->addComment();
 		break;
+	case "changeStatus":
+		$usr->changeImageStatus();
+		break;
 	case "test_db":
 		$imm = new ImageModel();
 		$imm->testDb();

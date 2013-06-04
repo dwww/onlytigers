@@ -12,12 +12,7 @@ class Main extends Controller{
 	}
 	
 	public function index(){
-		$tmpSlike = $this->imageModel->getImages(0,50);
-		$slike = array();
-		foreach ($tmpSlike as $slika) {
-			$id = $slika["id"];
-			$slike[$id] = "?page=img&id={$id}";
-		}
+		$slike = $this->imageModel->getImages(0,50);
 		
 		$data = $this->getDefData();
 		

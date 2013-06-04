@@ -27,7 +27,8 @@ class Controller {
 	public function getDefData(){
 		$u = new UserModel();
 		$data = array(
-				"username" => $u->getUsername()
+				"username" => $u->getUsername(),
+				"rights" => $u->getUserRigths(),
 		);
 		return $data;
 	}

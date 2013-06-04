@@ -8,13 +8,13 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="brand" href="#">OnlyTigers</a>
+						<a class="brand" href="http://www.onlytigers.com">OnlyTigers</a>
 							<div class="nav-collapse collapse">
 								<ul class="nav">
 									<li class="active"></li>
 									<li><a href="?page=index">Home</a></li>
 									<li><a href="?page=index">Gallery</a></li>
-									<li><a href="?page=index">About</a></li>
+									<li><a href="?page=about">About</a></li>
 								</ul>
 								<?php if ($username === ""):?>
 									<?php include 'toolbarSign.html.php';?>

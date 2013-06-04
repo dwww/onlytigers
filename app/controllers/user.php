@@ -46,7 +46,7 @@ class User extends Controller{
 		$name=basename($_FILES['image']['name']);
 		$size=basename($_FILES['image']['size']);
 		$type=basename($_FILES['image']['type']);
-		$res = $this->imageModel->upload_image($title, $tags, $description, $name, $size, $type);
+		$res = $this->imageModel->upload_image($title, $tags, $description, $name, $size, $type, $this->userModel->getUserId());
 		
 		if ($res){
 			header("Location: http://www.onlytigers.com/");
